@@ -1,7 +1,11 @@
 import xml.etree.ElementTree as et
 import urllib2  # the lib that handles the url stuff
+import os
 
-data = urllib2.urlopen('https://www.phoenixbse.com/index.php?a=xml&sa=pos_list&uid=xxxx&code=yyyy')
+xml_id = os.environ['PHOENIX_XML_ID']
+xml_code = os.environ['PHOENIX_XML_CODE']
+
+data = urllib2.urlopen('https://www.phoenixbse.com/index.php?a=xml&sa=pos_list&uid=' + xml_id + '&code=' + xml_code)
 tree = et.parse(data)
 root = tree.getroot()
 class position:
