@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as et
 import urllib2  # the lib that handles the url stuff
 
-data = urllib2.urlopen('https://www.phoenixbse.com/index.php?a=xml&sa=pos_list&uid=xxxx&code=yyyy')[/URL]
+data = urllib2.urlopen('https://www.phoenixbse.com/index.php?a=xml&sa=pos_list&uid=xxxx&code=yyyy')
 tree = et.parse(data)
 root = tree.getroot()
 class position:
