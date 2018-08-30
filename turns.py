@@ -3,6 +3,9 @@ import urllib2  # the lib that handles the url stuff
 import os 
 import json
 
+xml_id = os.environ['PHOENIX_XML_ID']
+xml_code = os.environ['PHOENIX_XML_CODE']
+
 current_path = os.path.dirname(os.path.realpath(__file__))
 target_path=current_path+'/data/'
 if not os.path.exists(target_path):
@@ -31,7 +34,7 @@ for p in pos.pos_list:
          turn_day=p.data['turns'][0]
     ## download file if there is a new one
     if turn_day>last_turn:
-        response = urllib2.urlopen('https://www.phoenixbse.com/index.php?a=xml&sa=turn_data&tid='+p.data['num']+'&uid=xxx&code=yyyy')
+        response = urllib2.urlopen('https://www.phoenixbse.com/index.php?a=xml&sa=turn_data&tid='+p.data['num']+'&uid=' + xml_id + '&code=' + xml_code)
         data = response.read()
         day=p.data['turns'][0]
         if data!="":
