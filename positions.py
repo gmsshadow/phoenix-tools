@@ -43,3 +43,4 @@ for child in root:
     for data in child:
         pos=position(data)
         pos_list.append(pos)
+         # testing
